@@ -32,7 +32,6 @@ Stack.prototype.peek = function Stack$peek() {
 	return this._data[this._top - 1];
 };
 
-// check if we stuff v8 internals by this implementation (swaping datastore object)
 Stack.prototype.clear = function Stack$clear() {
     this._data = {};
     this._top = 0;
