@@ -58,7 +58,6 @@ suite
     
     iterateShiftUnshift(deque);
     
-    // deque.push(a, b, c);
     deque.push(a);
     deque.push(b);
     deque.push(c);
@@ -70,10 +69,9 @@ suite
 
     iterateShiftUnshift(double);
     
-    double.push(a, b, c);
-    // double.push(a);
-    // double.push(b);
-    // double.push(c);
+    double.push(a);
+    double.push(b);
+    double.push(c);
 })
 .add("built-in array", function(){
     var a = builtInArray.shift();
@@ -82,10 +80,9 @@ suite
 
     iterateShiftUnshift(builtInArray);
     
-    builtInArray.push(a, b, c);
-    // builtInArray.unshift(a);
-    // builtInArray.unshift(b);
-    // builtInArray.unshift(c);
+    builtInArray.unshift(a);
+    builtInArray.unshift(b);
+    builtInArray.unshift(c);
 })
 .on("cycle", function(e) {
     console.log("" + e.target);

@@ -13,13 +13,13 @@ cd "$cwd/benchmarks"
 
 # node queue_thousand_ints.js
 # node queue_thousand_objs.js
-# node queue_million_ints.js
+node queue_million_ints.js
 # node queue_million_objs.js
 
-node deque_thousand_ints.js
+# node deque_thousand_ints.js
 # node deque_thousand_objs.js
 # node deque_million_ints.js
-node deque_million_objs.js
+# node deque_million_objs.js
 
 node spacer.js
 

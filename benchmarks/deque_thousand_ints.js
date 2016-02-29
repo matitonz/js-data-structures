@@ -40,7 +40,7 @@ var deque = new Deque();
 var double = new DoubleEnded();
 var builtInArray = new BuiltInArray();
 
-var l = 10000;
+var l = 1000;
 
 while(--l) {
     deque.push(l);
@@ -69,9 +69,9 @@ suite
 
     iterateShiftUnshift(double);
 
-    double.push(a, b, c);
-    // double.unshift(b);
-    // double.unshift(c);
+    double.push(a);
+    double.push(b);
+    double.push(c);
 })
 .add("built-in array", function(){
     var a = builtInArray.shift();
@@ -80,9 +80,9 @@ suite
 
     iterateShiftUnshift(builtInArray);
 
-    builtInArray.push(a, b, c);
-    // builtInArray.unshift(b);
-    // builtInArray.unshift(c);
+    builtInArray.push(a);
+    builtInArray.push(b);
+    builtInArray.push(c);
 })
 .on("cycle", function(e) {
     console.log("" + e.target);

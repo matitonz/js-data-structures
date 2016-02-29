@@ -1,6 +1,6 @@
 # js-data-structures
 
-Extremely fast stack, queue and deque implementations for Node
+Simple but extremely fast stack, queue and deque implementations in Javascript
 
 #Introduction
 
@@ -33,19 +33,22 @@ var Deque = require("node-data-structures").Deque;
 
 var stack = new Stack();
 stack.push(4);
-stack.push({prop: 3});
 stack.pop();    // 4
-stack.pop();    // {"prop":3}
+
+var queue = new Queue([1,2,3,4]);
+queue.shift(); 	// 1
+queue.push(5); 	// [2,3,4,5]
 
 var deque = new Deque([1,2,3,4]);
-deque.shift(); 	//1
-deque.pop(); 	//4
+deque.unshift(7);
+deque.pop(); 	// 4
+deque.shift(); 	// 7
 ```
 
 
 #Is it better than a native Array?
 
-WAY better - check out the performance section :)  Built in arrays can be really, seriously, naughtily bad.
+WAY better - check out the performance section!  Built in arrays can be really, seriously, naughtily bad :(
 
 These data structures are particularly fast compared to built in array's when storing objects or combinations of smis and objects in the stack, queue, or deque.
 
@@ -53,6 +56,7 @@ These data structures are particularly fast compared to built in array's when st
 #API
 
 ##Stack
+```js
 stack.push(value);
 stack.pop();
 stack.peek();
@@ -64,8 +68,10 @@ stack.toJSON();
 stack.toArray();
 stack.toString();
 stack.valueOf();
+```
 
 ##Queue
+```js
 queue.push(value);
 queue.enqueue(value);
 
@@ -80,9 +86,11 @@ queue.toJSON();
 queue.toArray();
 queue.toString();
 queue.valueOf();
+```
 
 ##Deque
-Front
+```js
+// Front
 deque.unshift(value);
 deque.insertFront(value);
 
@@ -91,7 +99,7 @@ deque.dequeue();
 deque.removeFront();
 deque.peekFront();
 
-Back
+// Back
 deque.push(value);
 deque.enqueue(value);
 deque.insertBack(value);
@@ -100,7 +108,7 @@ deque.pop();
 deque.removeBack();
 deque.peekBack();
 
-Utilities
+// Utilities
 deque.clear();
 deque.isEmpty();
 deque.length;
@@ -108,14 +116,14 @@ deque.toJSON();
 deque.toArray();
 deque.toString();
 deque.valueOf();
-
+```
 
 #Performance
 
-Clone the repo and `npm install`. Then run the `benchmarks` script.
+Clone the repo and `npm install`. Then run the `bench` script.
 
 ##Simple-Stack
-###1,000 integers on the stack
+###1 thousand integers on the stack
 
     Benchmarking stack's with 1,000 integers...
     simple-stack x 56,792 ops/sec ±0.79% (90 runs sampled)
@@ -130,7 +138,7 @@ Clone the repo and `npm install`. Then run the `benchmarks` script.
     built-in array x 5,266 ops/sec ±0.27% (92 runs sampled)
 
 ##Simple-Queue
-###1 million objects in the queue
+###1 thousand integers in the queue
 
 	Benchmarking queue's with 1,000 integers...
 	simple-queue x 56,202 ops/sec ±1.32% (83 runs sampled)
@@ -144,12 +152,26 @@ Clone the repo and `npm install`. Then run the `benchmarks` script.
 	double-ended-queue x 30,259 ops/sec ±0.21% (91 runs sampled)
 	built-in array x 0.56 ops/sec ±1.70% (6 runs sampled)
 
+##Simple-Deque
+###1 thousand integers in the deque
+    Benchmarking deque's with 1,000 integers...
+    simple-deque x 55,507 ops/sec ±1.37% (85 runs sampled)
+    double-ended-queue x 33,036 ops/sec ±0.99% (89 runs sampled)
+    built-in array x 3,182 ops/sec ±1.39% (89 runs sampled)
 
-Note just how poor performance a built-in array can produce given the right (| wrong) conditions.
+###1 million objects in the deque
+
+    Benchmarking deque's with 1,000,000 objects...
+    simple-deque x 59,410 ops/sec ±0.19% (92 runs sampled)
+    double-ended-queue x 35,030 ops/sec ±0.08% (90 runs sampled)
+    built-in array x 0.29 ops/sec ±0.56% (5 runs sampled)           <- ahhh!
+
+
+Note just how poor performance a built-in array can produce given the right (|| wrong) conditions.
 
 
 #Todo
 
-- [Benchmark performance in differing circumstances]
-- [Write tests - oops!]
 - [Port code for browser]
+- [Add fixed capacity - push to queue then the front pushs off]
+- [Add iterator code to deque]
