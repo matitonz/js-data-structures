@@ -1,0 +1,13 @@
+#!/bin/bash
+benchmark=$1
+cwd=${PWD}
+
+trap 'cd "$cwd"' EXIT
+
+cd "$cwd/tests"
+
+# mocha stack.js
+# mocha queue.js
+mocha deque.js
+
+exit 0

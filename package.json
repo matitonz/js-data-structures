@@ -1,0 +1,32 @@
+{
+  "name": "js-data-structures",
+  "version": "1.0.0",
+  "description": "Extremely fast stack, queue and deque implementations for Node",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matitonz/js-data-structures.git"
+  },
+  "keywords": [
+    "data-structure",
+    "data-structures",
+    "stack",
+    "queue",
+    "deque",
+    "fast"
+  ],
+  "author": "Matito",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matitonz/js-data-structures/issues"
+  },
+  "homepage": "https://github.com/matitonz/js-data-structures#readme",
+  "dependencies": {
+    "benchmark": "^2.1.0",
+    "double-ended-queue": "^2.1.0-0",
+    "mocha": "^2.4.5"
+  }
+}

@@ -1,0 +1,26 @@
+#!/bin/bash
+benchmark=$1
+cwd=${PWD}
+
+trap 'cd "$cwd"' EXIT
+
+cd "$cwd/benchmarks"
+
+# node stack_thousand_ints.js
+# node stack_thousand_objs.js
+# node stack_million_ints.js
+# node stack_million_objs.js
+
+# node queue_thousand_ints.js
+# node queue_thousand_objs.js
+# node queue_million_ints.js
+# node queue_million_objs.js
+
+node deque_thousand_ints.js
+# node deque_thousand_objs.js
+# node deque_million_ints.js
+node deque_million_objs.js
+
+node spacer.js
+
+exit 0
