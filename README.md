@@ -2,6 +2,7 @@
 
 Simple but extremely fast stack, queue and deque implementations in Javascript
 
+
 #Introduction
 
 Fast and simple data structures for use with Node (v8 browser implementations to come).
@@ -18,6 +19,7 @@ All operations are constant time lookups - `O(1)`.
 - [Getting started](#getting-started)
 - [Is it better than a native Array?](#is-it-better-than-a-native-array)
 - [API reference](#api)
+- [Credit](#credit)
 - [Benchmarks](#performance)
 - [Todo](#todo)
 
@@ -118,6 +120,12 @@ deque.toString();
 deque.valueOf();
 ```
 
+
+#Credit
+
+Credit where credit is due: Idea and bit op ideas taken from [double-ended-queue](https://github.com/petkaantonov/deque) (fast but more sophisticated implementation shown in benchmarks)
+
+
 #Performance
 
 Clone the repo and `npm install`. Then run the `bench` script.
@@ -164,7 +172,7 @@ Clone the repo and `npm install`. Then run the `bench` script.
     Benchmarking deque's with 1,000,000 objects...
     simple-deque x 59,410 ops/sec ±0.19% (92 runs sampled)
     double-ended-queue x 35,030 ops/sec ±0.08% (90 runs sampled)
-    built-in array x 0.29 ops/sec ±0.56% (5 runs sampled)           <- ahhh!
+    built-in array x 0.29 ops/sec ±0.56% (5 runs sampled)               <- ahhh!
 
 
 Note just how poor performance a built-in array can produce given the right (|| wrong) conditions.
@@ -173,5 +181,5 @@ Note just how poor performance a built-in array can produce given the right (|| 
 #Todo
 
 - [Port code for browser]
-- [Add fixed capacity - push to queue then the front pushs off]
+- [Add fixed capacity - push to full queue and shift off front ?]
 - [Add iterator code to deque]
